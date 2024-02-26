@@ -1,0 +1,26 @@
+class FibonacciContainer:
+    def __init__(self, n):
+        self.fibonacci_numbers = self.generate_fibonacci_numbers(n)
+
+    def generate_fibonacci_numbers(self, n):
+        fibonacci_sequence = [0, 1]
+        while len(fibonacci_sequence) < n:
+            next_number = fibonacci_sequence[-1] + fibonacci_sequence[-2]
+            fibonacci_sequence.append(next_number)
+        return fibonacci_sequence[:n]
+
+    def __len__(self):
+        return len(self.fibonacci_numbers)
+
+    def __getitem__(self, index):
+        return self.fibonacci_numbers[index]
+
+
+# Створення об'єкту класу FibonacciContainer з n = 10
+fib_container = FibonacciContainer(10)
+
+# Виведення довжини контейнера
+print("Довжина контейнера:", len(fib_container))
+
+# Виведення перших 5 чисел Фібоначчі
+print("Перші 5 чисел Фібоначчі:", fib_container[:5])
